@@ -35,12 +35,25 @@ Internally, It is using Resizable-array to actually store the elements.
  
 what is resizable-array?   By looking at the source code, it seems super interesting - It is just an array which initialized with certain size(if u do not specify the capacity) and We will grow the array list when the size of the elements equals to the capacity by copying the original array to an new array with a larger size.  
   
- Some well known features:
-  
+ Some well known features:  
+ 
+  * It has all of methods which list has
   * get/set/size/isEmpty/iterator/listIterator will have O(1)  
-  * add will have O(n)
+  * add(index,ele) will have O(n) and add() have O(1)
   * Not  synchronized - Not Thread Safe
   * Fail-Fast
   
+#### LinkedList 
+It has both list and deque features, since it implements the Deque and List
+Features:  
 
+* it has all method which list and deque have.
+* get() O(n)
+* Not synchronized
+* Fail-Fast  
+ 
+### Queue 
+
+
+#### Deque
    
