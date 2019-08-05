@@ -58,22 +58,27 @@ Features:
 Top level interface for all queues e.g Deque, BlockingQueue which is synchronzied data structure. 
 Besides basic Collection operations, it provides
 
-**Throws exception** 	**Returns special value**
-**Insert** 	add(e) 	offer(e)
-**Remove** 	remove() 	poll()
-**Examine** 	element() 	peek()
+|                       | Throws Exception | Returns Special Value |
+|-----------------------|------------------|-----------------------|
+| Insert                | add(e)           | offer(e)              |
+| Remove | remove()         | poll()                |
+| Examine               | element()        | peek()                |
 
 #### AbstractQueue  
 Like abstractList or other abstract of interface which provides some common implementation.  
 
 #### Deque
-Deque - Double End Queue. With queue, we can only add to the end of the queue and remove from the head of the queue.  
-Deque is basically evolved version of queue which provides add to the head of the queue and remove from the tail of the queue.
+Deque - Double End Queue. With queue, we can only add to the end of the queue and remove from the head of the queue.    
 
-**Throws exception 	Special value 	Throws exception 	Special value**
-**Insert** 	addFirst(e) 	offerFirst(e) 	addLast(e) 	offerLast(e)
-**Remove** 	removeFirst() 	pollFirst() 	removeLast() 	pollLast()
-**Examine** 	getFirst() 	peekFirst() 	getLast() 	peekLast()
+Deque is basically evolved version of queue which provides add to the head of the queue and remove from the tail of the queue.    
+
+With addition to the Queue methods.
+
+|         | Throws Exception | Returns Special Value | Throws Exception | Returns Special Value |
+|---------|------------------|-----------------------|------------------|-----------------------|
+| Insert  | addFirst(e)      | offerFirst(e)         | addLast(e)       | offerLast(e)          |
+| Remove  | removeFirst()    | pollFirst()           | removeLast()     | pollLast()            |
+| Examine | getFirst()       | peekFirst()           | getLast()        | peekLast()            |
   
 #### ArrayDeque  
 From the implementation standpoint, it's too obsvious that it's named with array.    
