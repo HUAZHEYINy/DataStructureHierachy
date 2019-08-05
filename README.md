@@ -42,18 +42,54 @@ what is resizable-array?   By looking at the source code, it seems super interes
   * add(index,ele) will have O(n) and add() have O(1)
   * Not  synchronized - Not Thread Safe
   * Fail-Fast
+  * Allow Null
   
 #### LinkedList 
-It has both list and deque features, since it implements the Deque and List
+It has both list and deque features, since it implements the Deque which is double and List
 Features:  
 
 * it has all method which list and deque have.
 * get() O(n)
 * Not synchronized
-* Fail-Fast  
+* Fail-Fast    
+* Allow Null
  
-### Queue 
+### Queue   
+Top level interface for all queues e.g Deque, BlockingQueue which is synchronzied data structure. 
+Besides basic Collection operations, it provides
 
+**Throws exception** 	**Returns special value**
+**Insert** 	add(e) 	offer(e)
+**Remove** 	remove() 	poll()
+**Examine** 	element() 	peek()
+
+#### AbstractQueue  
+Like abstractList or other abstract of interface which provides some common implementation.  
 
 #### Deque
-   
+Deque - Double End Queue. With queue, we can only add to the end of the queue and remove from the head of the queue.  
+Deque is basically evolved version of queue which provides add to the head of the queue and remove from the tail of the queue.
+
+**Throws exception 	Special value 	Throws exception 	Special value**
+**Insert** 	addFirst(e) 	offerFirst(e) 	addLast(e) 	offerLast(e)
+**Remove** 	removeFirst() 	pollFirst() 	removeLast() 	pollLast()
+**Examine** 	getFirst() 	peekFirst() 	getLast() 	peekLast()
+  
+#### ArrayDeque  
+From the implementation standpoint, it's too obsvious that it's named with array.    
+* Most operations are O(1) exceptions remove.
+* No synchronized
+* Fast-Fail
+* Not Allow Null
+    
+## List or Queue?  
+#### Difference
+The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
+
+The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.   
+  
+  ## Reference  
+  1. [Java Docs](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html) 
+  2. [Data Structure Time Complexity](https://gist.github.com/psayre23/c30a821239f4818b0709)  
+  3. [What is amortized constant time?](https://stackoverflow.com/questions/200384/constant-amortized-time)  
+  4. [Why ArrayList extends AbstractList but still need to implement List - implementation is transitive](https://stackoverflow.com/questions/18558536/why-does-arraylist-class-implement-list-as-well-as-extend-abstractlist)
