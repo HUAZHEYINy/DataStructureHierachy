@@ -84,17 +84,31 @@ With addition to the Queue methods.
 From the implementation standpoint, it's too obsvious that it's named with array.    
 * Most operations are O(1) exceptions remove.
 * No synchronized
-* Fast-Fail
+* Fail-Fast
+* Not Allow Null
+
+#### ConcurrentLikedDeque  
+* Concurrent insertion/removal/access deque data structure.  
+* Fail-Safe  
 * Not Allow Null
     
 ## List or Queue?  
 #### Difference
 The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
 
-The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.   
+The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.     
+  
+## Fail-Fast and Fail-Safe  
+Fail fast means raise failure as fast as possible; fail safe is opposite.  
+  
+ Default Collection which extends Iterable has fail fast feature. Most of the data structure under java.util pkg are fail fast.  
+  
+ Iterators on Collections from java.util.concurrent pkg are fail safe. Remember concurrent data structure are fail safe in nature.
   
   ## Reference  
   1. [Java Docs](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html) 
   2. [Data Structure Time Complexity](https://gist.github.com/psayre23/c30a821239f4818b0709)  
   3. [What is amortized constant time?](https://stackoverflow.com/questions/200384/constant-amortized-time)  
-  4. [Why ArrayList extends AbstractList but still need to implement List - implementation is transitive](https://stackoverflow.com/questions/18558536/why-does-arraylist-class-implement-list-as-well-as-extend-abstractlist)
+  4. [Why ArrayList extends AbstractList but still need to implement List - implementation is transitive](https://stackoverflow.com/questions/18558536/why-does-arraylist-class-implement-list-as-well-as-extend-abstractlist)  
+  5. [Fail-Fast and Fail-Safe](https://www.baeldung.com/java-fail-safe-vs-fail-fast-iterator)  
+  
