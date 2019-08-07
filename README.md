@@ -66,30 +66,49 @@ Besides basic Collection operations, it provides
 
 #### AbstractQueue  
 Like abstractList or other abstract of interface which provides some common implementation.  
+Note: ArrayDeque and ConcurrentLinkedDeque do not extend abstractQueue. [See why](https://stackoverflow.com/questions/25156772/why-does-the-class-arraydeque-not-extend-from-abstractqueue)  
 
 #### Deque
 Deque - Double End Queue. With queue, we can only add to the end of the queue and remove from the head of the queue.    
 
 Deque is basically evolved version of queue which provides add to the head of the queue and remove from the tail of the queue.    
 
-With addition to the Queue methods.
+With addition to the Queue methods which FIFO.
 
 |         | Throws Exception | Returns Special Value | Throws Exception | Returns Special Value |
 |---------|------------------|-----------------------|------------------|-----------------------|
 | Insert  | addFirst(e)      | offerFirst(e)         | addLast(e)       | offerLast(e)          |
 | Remove  | removeFirst()    | pollFirst()           | removeLast()     | pollLast()            |
-| Examine | getFirst()       | peekFirst()           | getLast()        | peekLast()            |
+| Examine | getFirst()       | peekFirst()           | getLast()        | peekLast()            |  
+
+It also provides stack methods which LIFO.    
+
+| Stack Method | Deque Method  |
+|--------------|---------------|
+| push(e)      | addFirst（）  |
+| pop()        | removeFirst() |
+| peek()       | peekFirst()   |
   
 #### ArrayDeque  
-From the implementation standpoint, it's too obsvious that it's named with array.    
+From the implementation standpoint, it's too obsvious that it's named with array.  
+
 * Most operations are O(1) exceptions remove.
-* No synchronized
+* Not synchronized
 * Fail-Fast
 * Not Allow Null
 
 #### ConcurrentLikedDeque  
-* Concurrent insertion/removal/access deque data structure.  
+* Concurrent insertion/removal/access deque data structure.    
+* Synchronized
 * Fail-Safe  
+* Not Allow Null 
+  
+#### Priority Queue  
+* elements are ordered according to the natural ordering or By comparator.       
+* O(log(n)) for enqueue and dequeue; O(1) for remove and contains and retrieval.  
+* Fail-Fast  
+* Iterator() is not guaranteed to traverse the elements in any particular order. Only queue methods will guarantee order.
+* Not synchronized
 * Not Allow Null
     
 ## List or Queue?  
