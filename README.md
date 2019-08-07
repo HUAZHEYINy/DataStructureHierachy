@@ -1,3 +1,22 @@
+- [DataStructureHierachy](#datastructurehierachy)
+- [What is this?](#what-is-this)
+- [这是什么](#这是什么)
+- [Collection Diagram](#collection-diagram)
+	- [List](#list)
+		- [AbstractList](#abstractlist)
+		- [ArrayList](#arraylist)
+		- [LinkedList](#linkedlist)
+	- [Queue](#queue)
+		- [AbstractQueue](#abstractqueue)
+		- [Deque](#deque)
+		- [ArrayDeque](#arraydeque)
+		- [ConcurrentLikedDeque](#concurrentlikeddeque)
+		- [Priority Queue](#priority-queue)
+- [List or Queue?](#list-or-queue)
+	- [Difference](#difference)
+- [Fail-Fast and Fail-Safe](#failfast-and-failsafe)
+- [Reference](#reference)
+  
 # DataStructureHierachy
 Java Data Structure Hierachy - 数据结构关系结构  
 
@@ -10,12 +29,12 @@ This article mainly shows the hierarchical relationship and structure between Ja
 # 这是什么  
 本文主要展示了 Java 数据结构的之间的层级关系和层次架构，让大家更加直观的理解各种数据结构以及他们是如果实现、他们的之间的区别。从而帮助我们更快、更好的选择适合实际用例的数据结构。    
 
- 例如： 对于ArrayList 我们知道它是实现了List Interface，但是它实际上首先继承了Abstract List 与此同时又实现了List. 这里衍生出来的问题有： 为什么会有AbstractList的出现? 它以及它父类和实现的interface的关系是什么？ArrayList 和 LinkedList从内部实现上看有什么本质的区别?  为什么ArrayList已经继承了AbstractList但是它还是需要直接实现List呢？
+ 例如： 对于ArrayList 我们知道它是实现了List Interface，但是它实际上首先继承了Abstract List 与此同时又实现了List. 这里衍生出来的问题有： 为什么会有AbstractList的出现? 它以及它父类和实现的interface的关系是什么？ArrayList 和 LinkedList从内部实现上看有什么本质的区别?  为什么ArrayList已经继承了AbstractList但是它还是需要直接实现List呢？  
    
 # Collection Diagram  
 ![Collection Img](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection.png)
 
-
+  
 ### List
 In real life, When we need to maintain a sequence of elements then we typically will choose List. Two well known implementation classs are ArrayList and LinkedList. 
 From a high level, List interface provides "CRUD" operations. 
