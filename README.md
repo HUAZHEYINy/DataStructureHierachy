@@ -7,15 +7,29 @@
 		- [ArrayList](#arraylist)
 		- [LinkedList](#linkedlist)
 	- [Queue](#queue)
-		- [AbstractQueue](#abstractqueue)
 		- [Deque](#deque)
-		- [ArrayDeque](#arraydeque)
-		- [ConcurrentLikedDeque](#concurrentlikeddeque)
-		- [Priority Queue](#priority-queue)
+			- [ArrayDeque](#arraydeque)
+			- [ConcurrentLikedDeque](#concurrentlikeddeque)
+		- [BlockingDeque](#blockingdeque)
+			- [LinkedBlockingDeque](#linkedblockingdeque)
+		- [AbstractQueue](#abstractqueue)
+			- [Priority Queue](#priority-queue)
+			- [ConcurrentLinkedQueue](#concurrentlinkedqueue)
+		- [BlockingQueue](#blockingqueue)
+			- [ArrayBlockingQueue](#arrayblockingqueue)
+			- [DelayQueue](#delayqueue)
+			- [LinkedBlockingQueue](#linkedblockingqueue)
+			- [PriorityBlockingQueue](#priorityblockingqueue)
+			- [SynchronousQueue](#synchronousqueue)
+			- [TransferQueue - interface](#transferqueue---interface)
+				- [LinkedTransferQueue](#linkedtransferqueue)
 - [List or Queue?](#list-or-queue)
 	- [Difference](#difference)
-- [Fail-Fast and Fail-Safe](#failfast-and-failsafe)
+- [Fail-Fast and Fail-Safe](#fail-fast-and-fail-safe)
 - [Reference](#reference)
+
+
+
   
 # DataStructureHierachy
 Java Data Structure Hierachy - 数据结构关系结构  
@@ -83,10 +97,6 @@ Besides basic Collection operations, it provides
 | Remove | remove()         | poll()                |
 | Examine               | element()        | peek()                |
 
-#### AbstractQueue  
-Like abstractList or other abstract of interface which provides some common implementation.  
-Note: ArrayDeque and ConcurrentLinkedDeque do not extend abstractQueue. [See why](https://stackoverflow.com/questions/25156772/why-does-the-class-arraydeque-not-extend-from-abstractqueue)  
-
 #### Deque
 Deque - Double End Queue. With queue, we can only add to the end of the queue and remove from the head of the queue.    
 
@@ -108,36 +118,72 @@ It also provides stack methods which LIFO.
 | pop()        | removeFirst() |
 | peek()       | peekFirst()   |
   
-#### ArrayDeque  
+##### ArrayDeque  
 From the implementation standpoint, it's too obsvious that it's named with array.  
 
 * Most operations are O(1) exceptions remove.
 * Not synchronized
-* Fail-Fast
+* Fail-Fast - But not guaranteed
 * Not Allow Null
 
-#### ConcurrentLikedDeque  
+##### ConcurrentLikedDeque  
 * Concurrent insertion/removal/access deque data structure.    
 * Synchronized
-* Fail-Safe  
-* Not Allow Null 
+* Weakly Consistent Iterator
+* Not Allow Null      
+* Non-Blocking Algorithms
+
+
+#### BlockingDeque  
+
+##### LinkedBlockingDeque    
+* Concurrent data structure    
+* Blocking Algorithms  
+* Weakly Consistent Iterator
+* Not Allow Null
+ 
+#### AbstractQueue  
+Like abstractList or other abstract of interface which provides some common implementation.  
+Note: ArrayDeque and ConcurrentLinkedDeque do not extend abstractQueue. [See why](https://stackoverflow.com/questions/25156772/why-does-the-class-arraydeque-not-extend-from-abstractqueue)  
   
-#### Priority Queue  
+##### Priority Queue  
 * elements are ordered according to the natural ordering or By comparator.       
 * O(log(n)) for enqueue and dequeue; O(1) for remove and contains and retrieval.  
 * Fail-Fast  
 * Iterator() is not guaranteed to traverse the elements in any particular order. Only queue methods will guarantee order.
 * Not synchronized
+* Not Allow Null    
+ 
+##### ConcurrentLinkedQueue    
+* Concurrent Data Structure  
+* Weakly Consistent Iterator    
+* Non-Blocking Algorithm
 * Not Allow Null
+  
+#### BlockingQueue
+  
+##### ArrayBlockingQueue  
+
+##### DelayQueue  
+  
+##### LinkedBlockingQueue  
+ 
+##### PriorityBlockingQueue  
+   
+##### SynchronousQueue  
+  
+##### TransferQueue - interface
+  
+###### LinkedTransferQueue
     
 ## List or Queue?  
 #### Difference
 The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
 
 The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.     
-  
-## Fail-Fast and Fail-Safe  
-Fail fast means raise failure as fast as possible; fail safe is opposite.  
+
+## Fail-Fast and Fail-Safe and Weakly Consistnt
+Fail fast means raise failure as fast as possible; fail safe is opposite.; weakly consistnt never fails but not guarantee the element will be visible.
   
  Default Collection which extends Iterable has fail fast feature. Most of the data structure under java.util pkg are fail fast.  
   
