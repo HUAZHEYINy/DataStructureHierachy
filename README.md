@@ -160,17 +160,34 @@ Note: ArrayDeque and ConcurrentLinkedDeque do not extend abstractQueue. [See why
 * Non-Blocking Algorithm
 * Not Allow Null
   
-#### BlockingQueue
+#### BlockingQueue  
+All implementaitons of this interface are synchronous data structure. They all have the similar feature addition to the queue. e.g   
+* Not Allow Null;   
+* Weakly Consistent;   
+* Concurrent Data Structure.     
+* Blocking Algorithm
   
+But you may ask, what is the diff between the ConcurrentLinkedQueue and those? In a high level, that because of the underlying implementation. The concurrent-queue such as ConcurrentLinkedQueue is using Non-Blocking algorithm. However, the BlockingQueue is using Blocking algorithm. More details See Reference.
 ##### ArrayBlockingQueue  
-
-##### DelayQueue  
+* Extend all of the features from Blocking Queue;  
+* Backed by Array  
+* Bounded Queue
+##### DelayQueue    
+* Extend all of the features from Blocking Queue;    
+* Unbounded Queue  
+* The eles in the queue are not visible except they expired.
   
-##### LinkedBlockingQueue  
+##### LinkedBlockingQueue    
+* Extend all of the features from Blocking Queue;     
+* Optional Bounded Queue  
  
-##### PriorityBlockingQueue  
+##### PriorityBlockingQueue    
+* Extend all of the features from Blocking Queue;   
+* Similar to Priority Queue  
+* Unbounded Queue
    
-##### SynchronousQueue  
+##### SynchronousQueue    
+* It is interesting data strucuture, Its basically a tunnel between threads. 
   
 ##### TransferQueue - interface
   
@@ -194,5 +211,6 @@ Fail fast means raise failure as fast as possible; fail safe is opposite.; weakl
   2. [Data Structure Time Complexity](https://gist.github.com/psayre23/c30a821239f4818b0709)  
   3. [What is amortized constant time?](https://stackoverflow.com/questions/200384/constant-amortized-time)  
   4. [Why ArrayList extends AbstractList but still need to implement List - implementation is transitive](https://stackoverflow.com/questions/18558536/why-does-arraylist-class-implement-list-as-well-as-extend-abstractlist)  
-  5. [Fail-Fast and Fail-Safe](https://www.baeldung.com/java-fail-safe-vs-fail-fast-iterator)  
+  5. [Fail-Fast and Fail-Safe](https://www.baeldung.com/java-fail-safe-vs-fail-fast-iterator)    
+  6. [Blocking Algorithm and Non-Blocking Algorithm](http://tutorials.jenkov.com/java-concurrency/non-blocking-algorithms.html)
   
