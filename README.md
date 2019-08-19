@@ -23,10 +23,19 @@
 			- [SynchronousQueue](#synchronousqueue)
 			- [TransferQueue - interface](#transferqueue---interface)
 				- [LinkedTransferQueue](#linkedtransferqueue)
-- [List or Queue?](#list-or-queue)
+	- [Set](#set)
+		- [HashSet](#hashset)
+		- [LinkedHashSet](#linkedhashset)
+		- [EnumSet](#enumset)
+		- [SortedSet](#sortedset)
+			- [NavigableSet](#navigableset)
+				- [ConcurrentSkipListSet](#concurrentskiplistset)
+				- [TreeSet](#treeset)
+- [List or Queue or Set?](#list-or-queue-or-set)
 	- [Difference](#difference)
-- [Fail-Fast and Fail-Safe](#fail-fast-and-fail-safe)
+- [Fail-Fast and Fail-Safe and Weakly Consistnt](#fail-fast-and-fail-safe-and-weakly-consistnt)
 - [Reference](#reference)
+
 
 
 
@@ -193,8 +202,42 @@ But you may ask, what is the diff between the ConcurrentLinkedQueue and those? I
   
 ###### LinkedTransferQueue
    * Unbounded queue based on linked node.  
-   * Additional to the common concurrent data structure, it has one distinct feature which it can block until other thread receieves your element. 
-## List or Queue?  
+   * Additional to the common concurrent data structure, it has one distinct feature which it can block until other thread receieves your element.   
+  
+    
+### Set 
+  In short, Set is another big part of collection family. The all known feature of Set is that contain no duplicate elements. 
+  
+#### HashSet  
+* It is Backed by HashTable(HashMap)  
+* No guarantee the order.  
+* Allow Null   
+* Fail-Fast    
+ 
+#### LinkedHashSet  
+* It is backed by HashTable and LinkedList - Augmented HashSet.  
+* It guarantees the insertion order.    
+  
+#### EnumSet  
+* Specialized implementation for use with enum types.  
+* In natural order which the enum constants are declared.  
+* Weakly Consistent.  
+* Not Allow Null  
+* It is an Abstract Class.   
+  
+#### SortedSet  
+Subinterface of Set which provide additional feature which is Ordering.     
+Because it guarantees the ordering, it provides some methods such as first() - get head; last - get last(); headSet(e) - sub set such that the elements in the set are strictly less than e; tailSet(e) - Oppotise of headSet.  
+
+#####  NavigableSet  
+*   
+  
+###### ConcurrentSkipListSet  
+  
+###### TreeSet  
+
+  
+## List or Queue or Set?  
 #### Difference
 The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
 
