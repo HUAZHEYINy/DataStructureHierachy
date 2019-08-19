@@ -192,7 +192,8 @@ But you may ask, what is the diff between the ConcurrentLinkedQueue and those? I
 ##### TransferQueue - interface
   
 ###### LinkedTransferQueue
-    
+   * Unbounded queue based on linked node.  
+   * Additional to the common concurrent data structure, it has one distinct feature which it can block until other thread receieves your element. 
 ## List or Queue?  
 #### Difference
 The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
