@@ -34,6 +34,8 @@
 - [List or Queue or Set?](#list-or-queue-or-set)
 	- [Difference](#difference)
 - [Fail-Fast and Fail-Safe and Weakly Consistnt](#fail-fast-and-fail-safe-and-weakly-consistnt)
+- [Serializable](#serializable)
+- [Cloneable](#cloneable)
 - [Reference](#reference)
 
 
@@ -226,35 +228,71 @@ But you may ask, what is the diff between the ConcurrentLinkedQueue and those? I
 * It is an Abstract Class.   
   
 #### SortedSet  
-Subinterface of Set which provide additional feature which is Ordering.     
-Because it guarantees the ordering, it provides some methods such as first() - get head; last - get last(); headSet(e) - sub set such that the elements in the set are strictly less than e; tailSet(e) - Oppotise of headSet.  
+Subinterface of Set which provide additional feature which is Ordering. NOTE: It's natural ordering or by a comparetor.
+Because it guarantees the ordering, it provides some methods such as  
+
+| Method     | Desciption                                                            |
+|------------|-----------------------------------------------------------------------|
+| first()    | get head - first element                                              |
+| last()     | get tail - last element                                               |
+| headSet(e) |  sub set such that the elements in the set are strictly less than e   |
+| tailSet(e) | sub set such that the elements in the set are strictly greater than e |
 
 #####  NavigableSet  
-*   
-  
-###### ConcurrentSkipListSet  
-  
-###### TreeSet  
+Extended version of SortedSet which can give a more precision access to the elements or subset.   
+***Addition to the Methods From SortedSet***    
 
+| Method                             | Desciption                                                        |
+|------------------------------------|-------------------------------------------------------------------|
+| ceiling/floor(e)                   | the least/greatest element which is greater/less or equal than e. |
+| higher/lower(e)                    | the least/greast element which is greater/less than e.            |
+| headSet/tailSet(e, bool inclusive) | return equal if inclusive is true.                                |
+| pollFirst()                        | Retrieve and remove the first element.                            |
+| pollLast()                         | Retrieve and remove the last element.                             |
+  
+###### ConcurrentSkipListSet      
+* Order guaranteed - natural ordering or by comparator.  
+* Concurrent Set implementation based on ConcurrentSkipListMap  
+* Weakly Consistent  
+* Bulk operation are not guraranteed to be performed atomically.  
+* Not Allow Null.
+  
+###### TreeSet      
+* Order guaranteed - natural ordering or by comparator.  
+* Set implementation based on Treemap.  
+* Not Allow Null  
+* Fast-Fail
   
 ## List or Queue or Set?  
 #### Difference
 The operations provided by List are mostly suitable when we need to handle a specific element or store a collection of elemnts. e.g we can get specific element or find the index of specific element.
 
-The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.     
+The operations provides by queue are mostly sutiable when we apply some other operations to a collection of elements(only head or tail is accessable). e.g we have list of job which need to done so that we retrieve one and remove it.       
+  
+The set data structure provides no duplicate elements and some of them guarantee the ordering. Also it provides the ability which can access part of the collection more precise than the list data structure.
 
 ## Fail-Fast and Fail-Safe and Weakly Consistnt
 Fail fast means raise failure as fast as possible; fail safe is opposite.; weakly consistnt never fails but not guarantee the element will be visible.
   
  Default Collection which extends Iterable has fail fast feature. Most of the data structure under java.util pkg are fail fast.  
   
- Iterators on Collections from java.util.concurrent pkg are fail safe. Remember concurrent data structure are fail safe in nature.
+ Iterators on Collections from java.util.concurrent pkg are fail safe. Remember concurrent data structure are fail safe in nature.  
+   
+## Serializable  
+All of the concrete classes are having the implementation of Serializable interface.   
+Serializability is a process of converting the data object to bytes vice versa. It is useful when we want to store the data object to a persistent storage or communicate via network etc.   
   
-  ## Reference  
+## Cloneable  
+By default, class which implements cloneable is able to shadow/(field-to-field) clone an object.   
+That means the newly cloned object only has the the reference which point to the same value in the heap.   
+If we need copy the value as well then we need deep copy. See reference 7 for more details.
+  
+## Reference  
   1. [Java Docs](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html) 
   2. [Data Structure Time Complexity](https://gist.github.com/psayre23/c30a821239f4818b0709)  
   3. [What is amortized constant time?](https://stackoverflow.com/questions/200384/constant-amortized-time)  
   4. [Why ArrayList extends AbstractList but still need to implement List - implementation is transitive](https://stackoverflow.com/questions/18558536/why-does-arraylist-class-implement-list-as-well-as-extend-abstractlist)  
   5. [Fail-Fast and Fail-Safe](https://www.baeldung.com/java-fail-safe-vs-fail-fast-iterator)    
-  6. [Blocking Algorithm and Non-Blocking Algorithm](http://tutorials.jenkov.com/java-concurrency/non-blocking-algorithms.html)
+  6. [Blocking Algorithm and Non-Blocking Algorithm](http://tutorials.jenkov.com/java-concurrency/non-blocking-algorithms.html)  
+  7. [Deep Copy and Shadow Copy](https://www.geeksforgeeks.org/deep-shallow-lazy-copy-java-examples/)
   
