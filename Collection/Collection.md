@@ -39,7 +39,7 @@
 
    
 # Collection Diagram  
-![Collection Img](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection.png)
+![Collection Img](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.png)
 
   
 ### List
