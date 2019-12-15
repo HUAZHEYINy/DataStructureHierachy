@@ -14,4 +14,7 @@ This article mainly shows the hierarchical relationship and structure between Ja
   
 # Collection - 集合
 * ~[中文版](WIP) WIP ~
-* [English Version](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md)
+* [English Version](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md)  
+  
+# Map  
+* [English Version](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Map/Map.md)
