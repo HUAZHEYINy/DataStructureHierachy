@@ -10,7 +10,10 @@ Map is Key-Value pair data strucutre. All map data structure are having all belo
   
 *Note*  
 * Object as key? (use equals and hashcode?)  
-* Support Null? 
+* Support Null?   
+  
+## [AbstractMap](https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html)  
+Simillar to AbstractList, AbstractMap implements (pretty much) all methods from Map interface and (pretty much) all concrete map classes extend it and override with their own requirements.
 
 ### Feature  
 * Guarantee order?
