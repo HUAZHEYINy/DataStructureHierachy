@@ -30,7 +30,7 @@
           + [TreeSet](#treeset)
   * [List or Queue or Set?](#list-or-queue-or-set-)
       - [Difference](#difference)
-  * [Fail-Fast and Fail-Safe and Weakly Consistnt](#fail-fast-and-fail-safe-and-weakly-consistnt)
+  * [Fail-Fast and Fail-Safe and Weakly Consistent](#fail-fast-and-fail-safe-and-weakly-consistnt)
   * [Serializable](#serializable)
   * [Cloneable](#cloneable)
   * [Reference](#reference)
@@ -253,8 +253,10 @@ The operations provides by queue are mostly sutiable when we apply some other op
   
 The set data structure provides no duplicate elements and some of them guarantee the ordering. Also it provides the ability which can access part of the collection more precise than the list data structure.
 
-## Fail-Fast and Fail-Safe and Weakly Consistnt
-Fail fast means raise failure as fast as possible; fail safe is opposite.; weakly consistnt never fails but not guarantee the element will be visible.
+## Fail-Fast and Fail-Safe and Weakly Consistent  
+They are all related to ConcurrentModificationException. In java, modifying a collection while another thread is iterating over it(including the thread itself) - this process called concurrent modification.
+ 
+Fail fast means raise failure as fast as possible; fail safe is opposite.; weakly consistent never fails but not guarantee the element will be visible.
   
  Default Collection which extends Iterable has fail fast feature. Most of the data structure under java.util pkg are fail fast.  
   
