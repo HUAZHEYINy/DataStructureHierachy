@@ -30,12 +30,13 @@
           + [TreeSet](#treeset)
   * [List or Queue or Set?](#list-or-queue-or-set-)
       - [Difference](#difference)
-  * [Fail-Fast and Fail-Safe and Weakly Consistent](#fail-fast-and-fail-safe-and-weakly-consistnt)
+  * [Fail-Fast and Fail-Safe and Weakly Consistent](#fail-fast-and-fail-safe-and-weakly-consistent)
   * [Serializable](#serializable)
   * [Cloneable](#cloneable)
   * [Reference](#reference)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
    
 # Collection Diagram  
