@@ -16,16 +16,29 @@ Map<String, Integer> map = new HashMap();  // Explicility defines the key type a
 ## [AbstractMap](https://docs.oracle.com/javase/8/docs/api/java/util/AbstractMap.html)  
 Simillar to AbstractList, AbstractMap implements (pretty much) all methods from Map interface and (pretty much) all concrete map classes extend it and override with their own requirements.    
 
-## [EnumMap](https://docs.oracle.com/javase/7/docs/api/java/util/EnumMap.html)  
+### [EnumMap](https://docs.oracle.com/javase/7/docs/api/java/util/EnumMap.html)  
 Specialized Map implementation for use with *enum* type keys. Pls always use EnumMap if the key is a set of constants.    
 
-* Collection Views Order:  
+* Collection Views:  
   * keySet() - `The set's iterator will return the keys in their natural order (the order in which the enum constants are declared).`  
   * values() - `Same order as the keys.` 
-  * entrySet() - `Same order as the keys.`  
+  * entrySet() - `Same order as the keys.`    
+  * [weakly consistent](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md#fail-fast-and-fail-safe-and-weakly-consistent) - No exception but does NOT guarantee to be visible.
 * *No Null Key; Null Value is ok*  
 * O(1) for all basic operations - likely to be faster than HashMap.
+  
+### [HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)  
+Most popular map implementation in its family and it's [Hash Table](https://en.wikipedia.org/wiki/Hash_table) based implementaion.  
+  
+Internally, The key is hashed by *hashCode* method and used that to find the correct *bucket* where we store the key/value pair; And then use *equals* method to scan the entries and find the key that equals to the input key. E.g when you use an object as key, then you will need to override the *hashCode* and *equals* methods to make it work as expected.
 
+* Collection Views:    
+  * *collection view methods* do NOT guarantee order.  
+  * [fail-fast](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md#fail-fast-and-fail-safe-and-weakly-consistent) for the collection views iterators except *remove* method of the iterators.
+* *Null Key and Value is ok*   
+* Performance affects by *initial capacity; load factor*    
+* *Not synchronized*
+  
 ### Feature  
 * Guarantee order?
 *Note*  
