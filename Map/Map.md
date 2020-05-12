@@ -37,7 +37,24 @@ Internally, The key is hashed by *hashCode* method and used that to find the cor
   * [fail-fast](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md#fail-fast-and-fail-safe-and-weakly-consistent) for the collection views iterators except *remove* method of the iterators.
 * *Null Key and Value is ok*   
 * Performance affects by *initial capacity; load factor*    
-* *Not synchronized*
+* *Not synchronized*  
+* *HashTable* based implementation.
+    
+### IdentifyHashMap
+*This class is not a general-purpose Map implementation! While this class implements the Map interface, it intentionally violates Map's general contract, which mandates the use of the equals method when comparing objects. This class is designed for use only in the rare cases wherein reference-equality semantics are required.* 
+  
+Copying the definition from Java Docs and the common features are pretty much identifical to *HashMap* 
+
+* Collection Views:    
+  * *collection view methods* do NOT guarantee order.  
+  * [fail-fast](https://github.com/HUAZHEYINy/DataStructureHierachy/blob/master/Collection/Collection.md#fail-fast-and-fail-safe-and-weakly-consistent) for the collection views iterators except *remove* method of the iterators.
+* *Null Key and Value is ok*   
+* Performance affects by *initial capacity; load factor*    
+* *Not synchronized*    
+* *HashTable* based implementation.
+  
+### WeakHashMap  
+https://community.oracle.com/blogs/enicholas/2006/05/04/understanding-weak-references
   
 ### Feature  
 * Guarantee order?
